@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using EShop.Application;
+using EShop.Domain;
+
 using Microsoft.AspNetCore.DataProtection.Repositories;
 using EShop.Domain.Repositories;
 
