@@ -49,8 +49,10 @@ namespace EShop.Application.Controllers
         }
     }
 
+
     public class CreditCardRequest
     {
         public string CardNumber { get; set; } = string.Empty;
     }
+
 }

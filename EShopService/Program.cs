@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using EShop.Application;
+using Microsoft.AspNetCore.DataProtection.Repositories;
+using EShop.Domain.Repositories;
 
 namespace EShopService
 {
@@ -7,6 +11,11 @@ namespace EShopService
         {
             var builder = WebApplication.CreateBuilder(args);
 
+
+            builder.Services.AddDbContext<DataContext>(options =>
+           options.UseInMemoryDatabase("EShopDatabase"));
+            builder.Services.AddScoped<ICreditCardService, CreditCardService>();
+
             // Add services to the container.
 
             builder.Services.AddControllers();
@@ -15,6 +24,8 @@ namespace EShopService
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
+   
+
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
